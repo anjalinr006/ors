@@ -1,0 +1,56 @@
+                                  <div class="modal-dialog">
+                                      <div class="modal-content" style="width: 144%;margin-left: -47px;">
+                                      <div class="modal-header">
+                                          <h1>Order Summery </h1>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row">
+                                          <div class="col-lg-12" id="order_summery">
+                                                <table class="table">
+                                                    <tr>
+                                                        <th>Customer Name</th>
+                                                        <th>:</th>
+                                                        <th id="customer_name">{{object.customer}}</th>
+                                                    </tr>
+                                                </table>
+                                              <table id="order_summary_table" class="table">
+                                                  <tr style="background: #2831791f;">
+                                                      <td> Product Name</td>
+                                                      <td> price </td>
+                                                      <td></td>
+                                                      <td> Quantity </td>
+                                                      <td>Total</td>
+                                                  </tr>
+
+                                                  {% for obj in object.orderproducts_set.all %}
+                                                  <tr>
+                                                      <td>{{obj.product}}</td>
+                                                      <td>{{obj.product.price}}</td>
+                                                      <td>*</td>
+                                                      <td>{{obj.quantity}}</td>
+                                                      <td>{{obj.amount}}</td>
+                                                  </tr>
+                                                  {% endfor %}
+
+                                              </table>
+                                              <div id="amount_data" style="margin: 25px 10px;float: right;">
+
+                                                                   <p> Amount = {{object.amount}} </p>
+                                                                   <p>Discount = {{object.discount_amount}} (% {{object.discount_percentage}})</p>
+                                                                   <p>Total = {{object.total}}</p>
+
+                                              </div>
+                                          </div>
+                                            <div style="margin-left: 35%;margin-bottom: 10%;">
+                                            <button  type="button" class="btn btn-raised btn-primary waves-effect"  id="model_button" style="margin-left:20px">Close</button>
+                                            </div>
+
+                                        </div>
+
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                        <!--End of Model Pop up-->
